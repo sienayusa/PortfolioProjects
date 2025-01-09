@@ -8,8 +8,10 @@ Order by 1,4;
 
 
 
+
 -- Select data that we are going to be using
 -- Looking at mental health data vs phys health data data
+
 
 Select 
 	Timestamp AS 'survey_date', 
@@ -28,8 +30,11 @@ Order by 3,4;
 
 
 
+
+
 -- Shows people who have wellness program had treatment in the USA
 -- Looking at wellness program vs treatment in the USA
+
 
 Select 
 	Timestamp AS 'survey_date', 
@@ -50,7 +55,11 @@ Order by 3,4;
 
 
 
+
+
+
 -- Showing countries with highest mental health consequences
+
 
 Select 
 	Country, 
@@ -67,7 +76,11 @@ Order by no_cases DESC;
 
 
 
+
+
+
 -- Showing countries with highest physical health consequences
+
 
 Select 
 	Country, 
@@ -84,7 +97,12 @@ Order by no_cases DESC;
 
 
 
+
+
+
+
 -- Showing state in the USA with highest mental health consequences
+
 
 Select 
 	state, 
@@ -101,7 +119,12 @@ Order by no_cases DESC;
 
 
 
+
+
+
+
 -- Showing state in the USA with highest physical health consequences
+
 
 Select 
 	state, 
@@ -119,7 +142,12 @@ Order by no_cases DESC;
 
 
 
+
+
+
+
 -- Looking at age between 40-60 with mental health consequences and physical health consequences
+
 
 Select 
 	Age, 
@@ -141,7 +169,13 @@ Order by Age;
 
 
 
+
+
+
+
+
 -- Global case numbers
+
 
 Select SUM(CASE 
 			WHEN treatment = 'Yes' then 1 
@@ -155,7 +189,12 @@ Where treatment = 'Yes';
 
 
 
+
+
+
+
 -- TEMP TABLE
+
 
 DROP TABLE IF EXISTS TechEmployeeMentalHealth;
 Create Table TechEmployeeMentalHealth(
@@ -181,7 +220,10 @@ Show Tables Like 'TechEmployeeMentalHealth';
 
 
 
+
+
 -- Creating view to store data for later visulations
+
 
 Create View TechEmployeeMentalHealthView AS
 Select 
