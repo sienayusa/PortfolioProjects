@@ -1,6 +1,7 @@
 
 -- Change column name
 
+
 Alter Table portfolio.apocolypse_sales
 Rename column `Product ID` to Product_ID,
 Rename column `Order ID` to Order_ID,
@@ -20,6 +21,7 @@ Rename column `Production Cost` to Production_Cost;
 
 
 -- Join the Sales table with the Store table
+
 
 Select 
 	a.Product_ID,
@@ -43,6 +45,7 @@ Order by 1,2;
 
 -- Create a new table with the result of the joined query
 
+
 Create Table apocolypse_sales_staging AS 
 Select 
 	a.Product_ID,
@@ -65,8 +68,10 @@ Order by Profit DESC;
 
 
 
+
 -- TEMP TABLE
 -- Delete the temp table when it is no longer needed.
+
 
 Create Table apocolypse_sales_staging1
 Like apocolypse_sales_staging;
@@ -85,7 +90,9 @@ Drop Table portfolio.apocolypse_sales_staging1;
 
 
 
+
 -- Shows the total profit from each customer
+
 
 Select 
 	Customer, 
@@ -102,6 +109,7 @@ Order by Customer;
 
 
 -- Looking at profit margin
+
 
 Select 
 	Customer, 
@@ -136,6 +144,7 @@ Order by Profit_Margin DESC;
 
 -- Looking at the most sold product
 
+
 Select 
 	Product_Name, 
     UnitS_Sold
@@ -162,8 +171,11 @@ Order by Units_Sold DESC;
 
 
 
+
+
 -- Looking at customer's selling capabilities
 -- Select customer, product name, units sold, and assign a status based on units sold
+
 
 Select 
 	Customer, 
@@ -198,7 +210,10 @@ Order by Customer;
 
 
 
+
+
 -- Looking at the rolling sum of units sold for each customer
+
 
 Select 
 	a.Customer, 
@@ -217,7 +232,10 @@ Order by a.Customer, a.Date_Purchased;
 
 
 
+
+
 -- USE CTE
+
 
 With CustomervsSales (Customer, Product_Name, Date_Purchased, Units_Sold, Rolling_Units_Sold)
 AS
@@ -245,7 +263,10 @@ Order by CustomervsSales.Customer, CustomervsSales.Date_Purchased;
 
 
 
+
+
 -- Creating view to store data for later visulations
+
 
 Create View apocolypse_sales_staging_View AS
 Select 
